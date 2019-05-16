@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { Subscriber } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tarning-bank';
+
+  
+  constructor(public dialog:MatDialog) { 
+
+  }
+
+  openDialog(){
+    const dialogRef = this.dialog.open(AppComponent,{
+      height:'350px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+
+  }
+
 }
